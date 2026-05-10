@@ -76,6 +76,7 @@ function setLanguage(lang) {
   }
 
   saveLanguage(lang);
+  initMobileDateSelectors();
   renderCalendar();
 }
 

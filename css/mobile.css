@@ -538,6 +538,62 @@
   /* Описание строки: закрывает текущий CSS-блок. */
   }
 
+
+  /* Селектор .booking — дополнительно уплотняет блок бронирования на телефонах. */
+  .booking {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  /* Селектор .booking .section-lead — уменьшает пояснение, чтобы блок бронирования занимал меньше места. */
+  .booking .section-lead {
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+
+  /* Селектор .calendar-box — скрывает большой календарь на телефонах. */
+  .calendar-box {
+    display: none;
+  }
+
+  /* Селектор .stay-dates-field — скрывает техническое поле дат на телефонах, его заполняют выпадающие списки. */
+  .stay-dates-field {
+    display: none;
+  }
+
+  /* Селектор .mobile-date-selectors — показывает компактные выпадающие списки заезда и выезда. */
+  .mobile-date-selectors {
+    display: grid;
+    gap: 12px;
+  }
+
+  /* Селектор .booking-date-group — отделяет дату заезда от даты выезда внутри формы. */
+  .booking-date-group {
+    padding: 12px;
+    border: 1px solid rgba(215, 217, 220, 0.95);
+    border-radius: 16px;
+    background: rgba(244, 245, 246, 0.72);
+  }
+
+  /* Селектор .booking-date-selects — компактная сетка день / месяц / год. */
+  .booking-date-selects {
+    grid-template-columns: 0.78fr 1.35fr 0.95fr;
+    gap: 7px;
+  }
+
+  /* Селектор .booking-date-selects label — уменьшает подписи мобильных дат. */
+  .booking-date-selects label {
+    gap: 5px;
+    font-size: 12px;
+  }
+
+  /* Селектор .booking-date-selects select — уменьшает высоту выпадающих списков дат. */
+  .booking-date-selects select {
+    min-height: 42px;
+    padding: 9px 8px;
+    font-size: 14px;
+  }
+
   /* Селектор .contacts-layout — переводит контакты в одну колонку. */
   /* Описание строки: начинает блок стилей для класса .contacts-layout. */
   .contacts-layout {

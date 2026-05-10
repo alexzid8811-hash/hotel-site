@@ -1626,6 +1626,34 @@ textarea:focus-visible {
 /* Описание строки: закрывает текущий CSS-блок. */
 }
 
+
+/* Селектор .mobile-date-selectors — скрывает мобильный выбор дат на планшетах и десктопе. */
+.mobile-date-selectors {
+  display: none;
+}
+
+/* Селектор .booking-date-group — убирает стандартное оформление fieldset для компактных мобильных дат. */
+.booking-date-group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Селектор .booking-date-group legend — оформляет заголовок группы дат. */
+.booking-date-group legend {
+  margin-bottom: 8px;
+  color: #2F3438;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+/* Селектор .booking-date-selects — раскладывает день, месяц и год в одну строку. */
+.booking-date-selects {
+  display: grid;
+  grid-template-columns: minmax(70px, 0.8fr) minmax(120px, 1.4fr) minmax(84px, 1fr);
+  gap: 8px;
+}
+
 /* Селектор .form-card .btn — делает кнопку формы на всю ширину карточки. */
 /* Описание строки: начинает блок стилей для класса .form-card .btn. */
 .form-card .btn {
