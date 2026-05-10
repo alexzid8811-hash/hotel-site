@@ -1706,8 +1706,11 @@ textarea:focus-visible {
 /* Селектор .booking-date-selects — раскладывает день, месяц и год в одну строку. */
 .booking-date-selects {
   display: grid;
+
   grid-template-columns: var(--mobile-date-select-grid);
   gap: var(--mobile-date-select-gap);
+  grid-template-columns: minmax(70px, 0.8fr) minmax(120px, 1.4fr) minmax(84px, 1fr);
+  gap: 8px;
 }
 
 /* Селектор .form-card .btn — делает кнопку формы на всю ширину карточки. */

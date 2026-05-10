@@ -562,12 +562,22 @@
   /* Описание строки: начинает блок стилей для класса .form-card. */
   .form-card {
     /* Описание строки: задаёт внутренние отступы элемента. */
+
     padding: var(--form-card-padding);
     /* Описание строки: задаёт расстояние между дочерними элементами. */
     gap: var(--form-card-gap);
     border-radius: var(--form-card-radius);
   /* Описание строки: закрывает текущий CSS-блок. */
   }
+
+
+    padding: 18px;
+    /* Описание строки: задаёт расстояние между дочерними элементами. */
+    gap: 14px;
+    border-radius: 22px;
+  /* Описание строки: закрывает текущий CSS-блок. */
+  }
+
 
 
   /* Селектор .booking — дополнительно уплотняет блок бронирования на телефонах. */
@@ -608,8 +618,13 @@
 
   /* Селектор .booking-date-selects — компактная сетка день / месяц / год. */
   .booking-date-selects {
+
     grid-template-columns: var(--mobile-date-select-grid);
     gap: var(--mobile-date-select-gap);
+
+    grid-template-columns: 0.78fr 1.35fr 0.95fr;
+    gap: 7px;
+
   }
 
   /* Селектор .booking-date-selects label — уменьшает подписи мобильных дат. */
@@ -620,12 +635,21 @@
 
   /* Селектор .booking-date-selects select — уменьшает высоту выпадающих списков дат. */
   .booking-date-selects select {
+
     min-height: var(--mobile-date-select-min-height);
     padding: var(--mobile-date-select-padding-y) var(--mobile-date-select-padding-x);
     font-size: var(--mobile-date-select-font-size);
   }
 
   /* Селектор .contacts-layout — переводит контакты в одну колонку. */
+
+    min-height: 42px;
+    padding: 9px 8px;
+    font-size: 14px;
+  }
+
+  /* Селектор .contacts-layout — переводит контакты в одну колонку. */
+
   /* Описание строки: начинает блок стилей для класса .contacts-layout. */
   .contacts-layout {
     /* Описание строки: задаёт количество и ширину колонок CSS Grid. */
