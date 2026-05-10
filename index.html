@@ -461,6 +461,17 @@
             <div id="calendar" class="calendar"></div> <!-- div#calendar — место, куда JS вставляет сетку дней. -->
           </div>
 
+          <div id="mobile-date-picker"> <!-- мобильный альтернативный выбор дат через нативные инпуты; скрыт на десктопе -->
+            <label class="mobile-date-label">
+              <span data-i18n="mobile_checkin">Дата заезда</span>
+              <input type="date" id="mobileCheckin" name="checkin">
+            </label>
+            <label class="mobile-date-label">
+              <span data-i18n="mobile_checkout">Дата выезда</span>
+              <input type="date" id="mobileCheckout" name="checkout">
+            </label>
+          </div>
+
           <form class="form-card" action="contact.php" method="post"> <!-- form — форма заявки; action — куда отправлять, method=post — способ отправки. -->
             <label><span data-i18n="form_name">Имя</span><input name="name" required></label>            <!-- label+input — поле «Имя»; required делает обязательным. -->
             <label><span data-i18n="form_phone">Телефон</span><input name="phone" required></label>     <!-- label+input — поле «Телефон». -->

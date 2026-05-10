@@ -367,3 +367,39 @@ addEvent(nextMonth, "click", function () {
 });
 
 
+/* =========================================================
+   БЛОК 15. МОБИЛЬНЫЙ ВЫБОР ДАТ (нативные <input type="date">)
+
+   За что отвечает:
+   - синхронизирует нативные дейтпикеры с selectedStart / selectedEnd;
+   - обновляет поле «Даты проживания» так же, как и десктопный календарь.
+
+   Почему так:
+   - на мобильных двухмесячный календарь сложно использовать пальцем;
+   - нативный input type="date" открывает системный пикер платформы.
+   ========================================================= */
+var mobileCheckin  = document.getElementById("mobileCheckin");
+var mobileCheckout = document.getElementById("mobileCheckout");
+
+if (mobileCheckin && mobileCheckout) {
+  mobileCheckin.min = dateKey(new Date());
+
+  addEvent(mobileCheckin, "change", function () {
+    if (!mobileCheckin.value) { return; }
+    var p = mobileCheckin.value.split("-");
+    selectedStart = new Date(+p[0], +p[1] - 1, +p[2]);
+    selectedEnd   = null;
+    mobileCheckout.value = "";
+    mobileCheckout.min   = mobileCheckin.value;
+    updateStayDatesInput();
+  });
+
+  addEvent(mobileCheckout, "change", function () {
+    if (!mobileCheckout.value || !selectedStart) { return; }
+    var p = mobileCheckout.value.split("-");
+    selectedEnd = new Date(+p[0], +p[1] - 1, +p[2]);
+    updateStayDatesInput();
+  });
+}
+
+

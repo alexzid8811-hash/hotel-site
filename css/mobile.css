@@ -501,6 +501,53 @@
   /* Описание строки: закрывает текущий CSS-блок. */
   }
 
+  /* На мобильном прячем полный календарь и показываем нативные дейтпикеры */
+  .calendar-box {
+    display: none;
+  }
+
+  #mobile-date-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px;
+    background: #FAFAF8;
+    border: 1px solid rgba(215, 217, 220, 0.95);
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(47, 52, 56, 0.07);
+  }
+
+  .mobile-date-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mobile-date-label span {
+    font-size: 14px;
+    color: #5a6068;
+    font-weight: 500;
+  }
+
+  .mobile-date-label input[type="date"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid rgba(195, 198, 203, 0.84);
+    border-radius: 12px;
+    font-size: 16px;
+    background: #fff;
+    color: #2f3438;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: inherit;
+  }
+
+  .mobile-date-label input[type="date"]:focus {
+    outline: none;
+    border-color: #8D949E;
+  }
+
   /* Селектор .calendar-box — уменьшает внутренние отступы календаря. */
   /* Описание строки: начинает блок стилей для класса .calendar-box. */
   .calendar-box {
