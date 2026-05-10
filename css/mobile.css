@@ -7,6 +7,37 @@
 /* Описание строки: условие применения правил только для указанного диапазона ширины экрана. */
 @media (max-width: 560px) {
 
+  /* ── РУЧНЫЕ НАСТРОЙКИ INPUT / SELECT / TEXTAREA ДЛЯ ТЕЛЕФОНОВ ≤560px ──
+     Здесь можно менять размеры и положение полей только на мобильной версии. */
+  :root {
+    --form-card-gap: 14px;
+    --form-card-padding: 18px;
+    --form-card-radius: 22px;
+    --form-label-gap: 7px;
+    --form-label-size: 14px;
+    --form-field-width: 100%;
+    --form-field-max-width: 100%;
+    --form-field-justify-self: stretch;
+    --form-field-min-height: 48px;
+    --form-field-padding-y: 12px;
+    --form-field-padding-x: 14px;
+    --form-field-radius: 14px;
+    --form-field-font-size: 16px;
+    --form-field-shift-x: 0px;
+    --form-field-shift-y: 0px;
+    --form-field-margin-top: 0px;
+    --form-field-margin-bottom: 0px;
+    --form-textarea-min-height: 118px;
+    --mobile-date-select-grid: 0.78fr 1.35fr 0.95fr;
+    --mobile-date-select-gap: 7px;
+    --mobile-date-group-shift-x: 0px;
+    --mobile-date-group-shift-y: 0px;
+    --mobile-date-select-min-height: 42px;
+    --mobile-date-select-padding-y: 9px;
+    --mobile-date-select-padding-x: 8px;
+    --mobile-date-select-font-size: 14px;
+  }
+
   /* Селектор body — немного уменьшает базовый текст на телефоне. */
   /* Описание строки: начинает блок стилей для селектора body. */
   body {
@@ -578,11 +609,67 @@
   /* Описание строки: начинает блок стилей для класса .form-card. */
   .form-card {
     /* Описание строки: задаёт внутренние отступы элемента. */
-    padding: 18px;
+    padding: var(--form-card-padding);
     /* Описание строки: задаёт расстояние между дочерними элементами. */
-    gap: 14px;
-    border-radius: 22px;
+    gap: var(--form-card-gap);
+    border-radius: var(--form-card-radius);
   /* Описание строки: закрывает текущий CSS-блок. */
+  }
+
+
+  /* Селектор .booking — дополнительно уплотняет блок бронирования на телефонах. */
+  .booking {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  /* Селектор .booking .section-lead — уменьшает пояснение, чтобы блок бронирования занимал меньше места. */
+  .booking .section-lead {
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+
+  /* Селектор .calendar-box — скрывает большой календарь на телефонах. */
+  .calendar-box {
+    display: none;
+  }
+
+  /* Селектор .stay-dates-field — скрывает техническое поле дат на телефонах, его заполняют выпадающие списки. */
+  .stay-dates-field {
+    display: none;
+  }
+
+  /* Селектор .mobile-date-selectors — показывает компактные выпадающие списки заезда и выезда. */
+  .mobile-date-selectors {
+    display: grid;
+    gap: 12px;
+  }
+
+  /* Селектор .booking-date-group — отделяет дату заезда от даты выезда внутри формы. */
+  .booking-date-group {
+    padding: 12px;
+    border: 1px solid rgba(215, 217, 220, 0.95);
+    border-radius: 16px;
+    background: rgba(244, 245, 246, 0.72);
+  }
+
+  /* Селектор .booking-date-selects — компактная сетка день / месяц / год. */
+  .booking-date-selects {
+    grid-template-columns: var(--mobile-date-select-grid);
+    gap: var(--mobile-date-select-gap);
+  }
+
+  /* Селектор .booking-date-selects label — уменьшает подписи мобильных дат. */
+  .booking-date-selects label {
+    gap: 5px;
+    font-size: 12px;
+  }
+
+  /* Селектор .booking-date-selects select — уменьшает высоту выпадающих списков дат. */
+  .booking-date-selects select {
+    min-height: var(--mobile-date-select-min-height);
+    padding: var(--mobile-date-select-padding-y) var(--mobile-date-select-padding-x);
+    font-size: var(--mobile-date-select-font-size);
   }
 
   /* Селектор .contacts-layout — переводит контакты в одну колонку. */
@@ -593,6 +680,48 @@
     /* Описание строки: задаёт расстояние между дочерними элементами. */
     gap: 18px;
   /* Описание строки: закрывает текущий CSS-блок. */
+  }
+
+  /* Селектор .contacts — скрывает случайное горизонтальное переполнение всего блока контактов. */
+  .contacts {
+    overflow-x: hidden;
+  }
+
+  /* Селектор .contacts .container — не даёт контактам выходить за ширину телефона. */
+  .contacts .container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Селектор .contacts-layout — фиксирует мобильную колонку без горизонтального переполнения. */
+  .contacts-layout {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Селектор .contacts-layout > * — карта и форма занимают только доступную ширину экрана. */
+  .contacts-layout > * {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Селектор .contacts-layout .map-wrap — на телефоне карта всегда идёт первой. */
+  .contacts-layout .map-wrap {
+    order: 1;
+  }
+
+  /* Селектор .contacts-layout .form-card — на телефоне форма всегда идёт ниже карты. */
+  .contacts-layout .form-card {
+    order: 2;
+  }
+
+  /* Селектор .contacts .form-card input/select/textarea — поля формы не шире карточки контактов. */
+  .contacts .form-card input,
+  .contacts .form-card select,
+  .contacts .form-card textarea {
+    max-width: 100%;
   }
 
   /* Селектор .map-wrap — задаёт мобильную высоту карты. */

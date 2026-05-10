@@ -486,7 +486,28 @@
                 <option>Полулюкс</option>
               </select>
             </label>
-            <label><span data-i18n="form_dates">Даты проживания</span><input id="stayDates" name="dates" placeholder="01.05.2026 — 05.05.2026" readonly></label> <!-- input#stayDates — поле дат, readonly заполняется только календарём. -->
+            <label class="stay-dates-field"><span data-i18n="form_dates">Даты проживания</span><input id="stayDates" name="dates" placeholder="01.05.2026 — 05.05.2026" readonly></label> <!-- input#stayDates — поле дат, readonly заполняется календарём или мобильными выпадающими списками. -->
+
+            <div class="mobile-date-selectors" aria-label="Выбор дат проживания"> <!-- div.mobile-date-selectors — компактный мобильный выбор дат через выпадающие списки. -->
+              <fieldset class="booking-date-group"> <!-- fieldset — группа выпадающих списков даты заезда. -->
+                <legend data-i18n="checkin_date">Дата заезда</legend>
+                <div class="booking-date-selects">
+                  <label><span data-i18n="date_day">День</span><select id="checkinDay" data-booking-date="start" data-date-part="day"></select></label>
+                  <label><span data-i18n="date_month">Месяц</span><select id="checkinMonth" data-booking-date="start" data-date-part="month"></select></label>
+                  <label><span data-i18n="date_year">Год</span><select id="checkinYear" data-booking-date="start" data-date-part="year"></select></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="booking-date-group"> <!-- fieldset — группа выпадающих списков даты выезда. -->
+                <legend data-i18n="checkout_date">Дата выезда</legend>
+                <div class="booking-date-selects">
+                  <label><span data-i18n="date_day">День</span><select id="checkoutDay" data-booking-date="end" data-date-part="day"></select></label>
+                  <label><span data-i18n="date_month">Месяц</span><select id="checkoutMonth" data-booking-date="end" data-date-part="month"></select></label>
+                  <label><span data-i18n="date_year">Год</span><select id="checkoutYear" data-booking-date="end" data-date-part="year"></select></label>
+                </div>
+              </fieldset>
+            </div>
+
             <label><span data-i18n="form_message">Комментарий</span><textarea name="message" rows="4"></textarea></label> <!-- textarea — многострочное поле; rows — высота в строках. -->
             <button class="btn" type="submit" data-i18n="send_btn">Отправить заявку</button> <!-- button type=submit — отправляет форму на contact.php. -->
           </form>

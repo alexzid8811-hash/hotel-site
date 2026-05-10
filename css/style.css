@@ -1531,19 +1531,68 @@ textarea:focus-visible {
 /* Описание строки: закрывает текущий CSS-блок. */
 }
 
+/* ========================================================================
+   РУЧНЫЕ НАСТРОЙКИ ПОЛЕЙ ФОРМ
+
+   Меняйте значения ниже, чтобы вручную управлять размером и положением
+   input / select / textarea во всех формах сайта.
+
+   Где менять под конкретные разрешения:
+   - css/desktop.css — десктопы от 1101px;
+   - css/tablet.css  — планшеты 561–1100px;
+   - css/mobile.css  — телефоны до 560px;
+   - css/phone.css   — телефоны до 430px.
+
+   Самые полезные переменные:
+   --form-field-width       — ширина поля;
+   --form-field-max-width   — максимальная ширина поля;
+   --form-field-shift-x     — сдвиг поля влево/вправо;
+   --form-field-shift-y     — сдвиг поля вверх/вниз;
+   --form-field-min-height  — высота input/select;
+   --form-textarea-min-height — высота textarea.
+   ======================================================================== */
+:root {
+  --form-card-gap: 16px;
+  --form-card-padding: 26px;
+  --form-card-radius: 28px;
+  --form-label-gap: 7px;
+  --form-label-size: 14px;
+  --form-field-width: 100%;
+  --form-field-max-width: 100%;
+  --form-field-justify-self: stretch;
+  --form-field-min-height: 48px;
+  --form-field-padding-y: 12px;
+  --form-field-padding-x: 14px;
+  --form-field-radius: 14px;
+  --form-field-font-size: 16px;
+  --form-field-shift-x: 0px;
+  --form-field-shift-y: 0px;
+  --form-field-margin-top: 0px;
+  --form-field-margin-bottom: 0px;
+  --form-textarea-min-height: 118px;
+  --mobile-date-select-grid: minmax(70px, 0.8fr) minmax(120px, 1.4fr) minmax(84px, 1fr);
+  --mobile-date-select-gap: 8px;
+  --mobile-date-group-shift-x: 0px;
+  --mobile-date-group-shift-y: 0px;
+  --mobile-date-select-min-height: var(--form-field-min-height);
+  --mobile-date-select-padding-y: var(--form-field-padding-y);
+  --mobile-date-select-padding-x: var(--form-field-padding-x);
+  --mobile-date-select-font-size: var(--form-field-font-size);
+}
+
 /* Селектор .form-card — оформляет формы бронирования и обратной связи. */
 /* Описание строки: начинает блок стилей для класса .form-card. */
 .form-card {
   /* Описание строки: задаёт тип отображения и схему раскладки элемента. */
   display: grid;
   /* Описание строки: задаёт расстояние между дочерними элементами. */
-  gap: 16px;
+  gap: var(--form-card-gap);
   /* Описание строки: задаёт внутренние отступы элемента. */
-  padding: 26px;
+  padding: var(--form-card-padding);
   /* Описание строки: задаёт рамку элемента. */
   border: 1px solid rgba(215, 217, 220, 0.95);
   /* Описание строки: скругляет углы элемента; зависит от CSS-переменной --radius-lg. */
-  border-radius: 28px;
+  border-radius: var(--form-card-radius);
   /* Описание строки: задаёт фон элемента: цвет, градиент или изображение; зависит от CSS-переменной --card-bg. */
   background: #FAFAF8;
   /* Описание строки: задаёт тень элемента; зависит от CSS-переменной --shadow-card. */
@@ -1557,11 +1606,11 @@ textarea:focus-visible {
   /* Описание строки: задаёт тип отображения и схему раскладки элемента. */
   display: grid;
   /* Описание строки: задаёт расстояние между дочерними элементами. */
-  gap: 7px;
+  gap: var(--form-label-gap);
   /* Описание строки: задаёт цвет текста; зависит от CSS-переменной --muted. */
   color: #6E7073;
   /* Описание строки: задаёт размер шрифта. */
-  font-size: 14px;
+  font-size: var(--form-label-size);
   /* Описание строки: задаёт толщину начертания шрифта. */
   font-weight: 800;
 /* Описание строки: закрывает текущий CSS-блок. */
@@ -1583,25 +1632,31 @@ textarea:focus-visible {
 /* Описание строки: начинает блок стилей для класса .form-card textarea. */
 .form-card textarea {
     /* Описание строки: задаёт минимальную высоту элемента. */
-    min-height: 48px;
-    padding-top: 12px;
-    padding-right: 14px;
-    padding-left: 14px;
-    padding-bottom: 12px;
+    width: var(--form-field-width);
+    max-width: var(--form-field-max-width);
+    justify-self: var(--form-field-justify-self);
+    min-height: var(--form-field-min-height);
+    margin-top: var(--form-field-margin-top);
+    margin-bottom: var(--form-field-margin-bottom);
+    padding-top: var(--form-field-padding-y);
+    padding-right: var(--form-field-padding-x);
+    padding-left: var(--form-field-padding-x);
+    padding-bottom: var(--form-field-padding-y);
     /* Описание строки: задаёт рамку элемента. */
     border: 1px solid rgba(195, 198, 203, 0.9);
     /* Описание строки: скругляет углы элемента; зависит от CSS-переменной --radius-sm. */
-    border-radius: 14px;
+    border-radius: var(--form-field-radius);
     /* Описание строки: задаёт цвет текста; зависит от CSS-переменной --text. */
     color: #2F3438;
     /* Описание строки: задаёт размер шрифта. */
-    font-size: 16px;
+    font-size: var(--form-field-font-size);
     /* Описание строки: задаёт толщину начертания шрифта. */
     font-weight: 500;
     /* Описание строки: задаёт фон элемента: цвет, градиент или изображение. */
     background: rgba(244, 245, 246, 0.92);
     /* Описание строки: задаёт плавность изменения CSS-свойств. */
-    transition: border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;/* Описание строки: закрывает текущий CSS-блок. */
+    transform: translate(var(--form-field-shift-x), var(--form-field-shift-y));
+    transition: border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;/* Описание строки: закрывает текущий CSS-блок. */
 }
 
 /* Селектор .form-card textarea — разрешает менять высоту поля сообщения только вертикально. */
@@ -1610,7 +1665,7 @@ textarea:focus-visible {
   /* Описание строки: разрешает или запрещает изменение размера textarea. */
   resize: vertical;
   /* Описание строки: задаёт минимальную высоту элемента. */
-  min-height: 118px;
+  min-height: var(--form-textarea-min-height);
 /* Описание строки: закрывает текущий CSS-блок. */
 }
 
@@ -1629,6 +1684,35 @@ textarea:focus-visible {
     box-shadow: 0 0 0 2px rgba(140, 144, 150, 0.18);
     -webkit-box-shadow: 0 0 0 2px rgba(140, 144, 150, 0.18);
 /* Описание строки: закрывает текущий CSS-блок. */
+}
+
+
+/* Селектор .mobile-date-selectors — скрывает мобильный выбор дат на планшетах и десктопе. */
+.mobile-date-selectors {
+  display: none;
+}
+
+/* Селектор .booking-date-group — убирает стандартное оформление fieldset для компактных мобильных дат. */
+.booking-date-group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  transform: translate(var(--mobile-date-group-shift-x), var(--mobile-date-group-shift-y));
+}
+
+/* Селектор .booking-date-group legend — оформляет заголовок группы дат. */
+.booking-date-group legend {
+  margin-bottom: 8px;
+  color: #2F3438;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+/* Селектор .booking-date-selects — раскладывает день, месяц и год в одну строку. */
+.booking-date-selects {
+  display: grid;
+  grid-template-columns: var(--mobile-date-select-grid);
+  gap: var(--mobile-date-select-gap);
 }
 
 /* Селектор .form-card .btn — делает кнопку формы на всю ширину карточки. */
@@ -1665,6 +1749,11 @@ textarea:focus-visible {
   /* Описание строки: выравнивает дочерние элементы по поперечной оси. */
   align-items: stretch;
 /* Описание строки: закрывает текущий CSS-блок. */
+}
+
+/* Селектор .contacts-layout > * — разрешает карте и форме сжиматься внутри CSS Grid без горизонтального переполнения. */
+.contacts-layout > * {
+  min-width: 0;
 }
 
 /* Селектор .map-wrap — оформляет контейнер Яндекс.Карты. */
