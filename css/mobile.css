@@ -7,37 +7,6 @@
 /* Описание строки: условие применения правил только для указанного диапазона ширины экрана. */
 @media (max-width: 560px) {
 
-  /* ── РУЧНЫЕ НАСТРОЙКИ INPUT / SELECT / TEXTAREA ДЛЯ ТЕЛЕФОНОВ ≤560px ──
-     Здесь можно менять размеры и положение полей только на мобильной версии. */
-  :root {
-    --form-card-gap: 14px;
-    --form-card-padding: 18px;
-    --form-card-radius: 22px;
-    --form-label-gap: 7px;
-    --form-label-size: 14px;
-    --form-field-width: 100%;
-    --form-field-max-width: 100%;
-    --form-field-justify-self: stretch;
-    --form-field-min-height: 48px;
-    --form-field-padding-y: 12px;
-    --form-field-padding-x: 14px;
-    --form-field-radius: 14px;
-    --form-field-font-size: 16px;
-    --form-field-shift-x: 0px;
-    --form-field-shift-y: 0px;
-    --form-field-margin-top: 0px;
-    --form-field-margin-bottom: 0px;
-    --form-textarea-min-height: 118px;
-    --mobile-date-select-grid: 0.78fr 1.35fr 0.95fr;
-    --mobile-date-select-gap: 7px;
-    --mobile-date-group-shift-x: 0px;
-    --mobile-date-group-shift-y: 0px;
-    --mobile-date-select-min-height: 42px;
-    --mobile-date-select-padding-y: 9px;
-    --mobile-date-select-padding-x: 8px;
-    --mobile-date-select-font-size: 14px;
-  }
-
   /* Селектор body — немного уменьшает базовый текст на телефоне. */
   /* Описание строки: начинает блок стилей для селектора body. */
   body {
@@ -501,6 +470,53 @@
   /* Описание строки: закрывает текущий CSS-блок. */
   }
 
+  /* На мобильном прячем полный календарь и показываем нативные дейтпикеры */
+  .calendar-box {
+    display: none;
+  }
+
+  #mobile-date-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px;
+    background: #FAFAF8;
+    border: 1px solid rgba(215, 217, 220, 0.95);
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(47, 52, 56, 0.07);
+  }
+
+  .mobile-date-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mobile-date-label span {
+    font-size: 14px;
+    color: #5a6068;
+    font-weight: 500;
+  }
+
+  .mobile-date-label input[type="date"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid rgba(195, 198, 203, 0.84);
+    border-radius: 12px;
+    font-size: 16px;
+    background: #fff;
+    color: #2f3438;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: inherit;
+  }
+
+  .mobile-date-label input[type="date"]:focus {
+    outline: none;
+    border-color: #8D949E;
+  }
+
   /* Селектор .calendar-box — уменьшает внутренние отступы календаря. */
   /* Описание строки: начинает блок стилей для класса .calendar-box. */
   .calendar-box {
@@ -562,15 +578,6 @@
   /* Описание строки: начинает блок стилей для класса .form-card. */
   .form-card {
     /* Описание строки: задаёт внутренние отступы элемента. */
-
-    padding: var(--form-card-padding);
-    /* Описание строки: задаёт расстояние между дочерними элементами. */
-    gap: var(--form-card-gap);
-    border-radius: var(--form-card-radius);
-  /* Описание строки: закрывает текущий CSS-блок. */
-  }
-
-
     padding: 18px;
     /* Описание строки: задаёт расстояние между дочерними элементами. */
     gap: 14px;
@@ -578,78 +585,7 @@
   /* Описание строки: закрывает текущий CSS-блок. */
   }
 
-
-
-  /* Селектор .booking — дополнительно уплотняет блок бронирования на телефонах. */
-  .booking {
-    padding-top: 42px;
-    padding-bottom: 42px;
-  }
-
-  /* Селектор .booking .section-lead — уменьшает пояснение, чтобы блок бронирования занимал меньше места. */
-  .booking .section-lead {
-    margin-bottom: 20px;
-    font-size: 15px;
-  }
-
-  /* Селектор .calendar-box — скрывает большой календарь на телефонах. */
-  .calendar-box {
-    display: none;
-  }
-
-  /* Селектор .stay-dates-field — скрывает техническое поле дат на телефонах, его заполняют выпадающие списки. */
-  .stay-dates-field {
-    display: none;
-  }
-
-  /* Селектор .mobile-date-selectors — показывает компактные выпадающие списки заезда и выезда. */
-  .mobile-date-selectors {
-    display: grid;
-    gap: 12px;
-  }
-
-  /* Селектор .booking-date-group — отделяет дату заезда от даты выезда внутри формы. */
-  .booking-date-group {
-    padding: 12px;
-    border: 1px solid rgba(215, 217, 220, 0.95);
-    border-radius: 16px;
-    background: rgba(244, 245, 246, 0.72);
-  }
-
-  /* Селектор .booking-date-selects — компактная сетка день / месяц / год. */
-  .booking-date-selects {
-
-    grid-template-columns: var(--mobile-date-select-grid);
-    gap: var(--mobile-date-select-gap);
-
-    grid-template-columns: 0.78fr 1.35fr 0.95fr;
-    gap: 7px;
-
-  }
-
-  /* Селектор .booking-date-selects label — уменьшает подписи мобильных дат. */
-  .booking-date-selects label {
-    gap: 5px;
-    font-size: 12px;
-  }
-
-  /* Селектор .booking-date-selects select — уменьшает высоту выпадающих списков дат. */
-  .booking-date-selects select {
-
-    min-height: var(--mobile-date-select-min-height);
-    padding: var(--mobile-date-select-padding-y) var(--mobile-date-select-padding-x);
-    font-size: var(--mobile-date-select-font-size);
-  }
-
   /* Селектор .contacts-layout — переводит контакты в одну колонку. */
-
-    min-height: 42px;
-    padding: 9px 8px;
-    font-size: 14px;
-  }
-
-  /* Селектор .contacts-layout — переводит контакты в одну колонку. */
-
   /* Описание строки: начинает блок стилей для класса .contacts-layout. */
   .contacts-layout {
     /* Описание строки: задаёт количество и ширину колонок CSS Grid. */

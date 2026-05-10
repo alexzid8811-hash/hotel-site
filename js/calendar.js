@@ -35,7 +35,6 @@ var monthNames = {
 var calendarDate = new Date();
 var selectedStart = null;
 var selectedEnd = null;
-var mobileDateSelectsReady = false;
 
 
 /* =========================================================
@@ -55,155 +54,6 @@ function formatDate(date) {
 
 function dateKey(date) {
   return date.getFullYear() + "-" + two(date.getMonth() + 1) + "-" + two(date.getDate());
-}
-
-function daysInMonth(year, monthIndex) {
-  return new Date(year, monthIndex + 1, 0).getDate();
-}
-
-function getMobileDateSelect(role, part) {
-  return document.querySelector('[data-booking-date="' + role + '"][data-date-part="' + part + '"]');
-}
-
-function getMobileBookingDate(role) {
-  var daySelect = getMobileDateSelect(role, "day");
-  var monthSelect = getMobileDateSelect(role, "month");
-  var yearSelect = getMobileDateSelect(role, "year");
-
-  if (!daySelect || !monthSelect || !yearSelect) { return null; }
-  if (!daySelect.value || !monthSelect.value || !yearSelect.value) { return null; }
-
-  var day = parseInt(daySelect.value, 10);
-  var month = parseInt(monthSelect.value, 10) - 1;
-  var year = parseInt(yearSelect.value, 10);
-  var date = new Date(year, month, day);
-
-  if (date.getFullYear() !== year || date.getMonth() !== month || date.getDate() !== day) {
-    return null;
-  }
-
-  return date;
-}
-
-function fillSelect(select, options, selectedValue, placeholder) {
-  var value = selectedValue ? String(selectedValue) : "";
-  select.innerHTML = "";
-
-  var emptyOption = document.createElement("option");
-  emptyOption.value = "";
-  emptyOption.innerHTML = placeholder;
-  select.appendChild(emptyOption);
-
-  for (var i = 0; i < options.length; i++) {
-    var option = document.createElement("option");
-    option.value = options[i].value;
-    option.innerHTML = options[i].label;
-    select.appendChild(option);
-  }
-
-  select.value = value;
-}
-
-function updateMobileDateOptions(role) {
-  var daySelect = getMobileDateSelect(role, "day");
-  var monthSelect = getMobileDateSelect(role, "month");
-  var yearSelect = getMobileDateSelect(role, "year");
-
-  if (!daySelect || !monthSelect || !yearSelect) { return; }
-
-  var lang = loadLanguage();
-  var dictionary = translations[lang] || translations.ru;
-  var names = monthNames[lang] || monthNames.ru;
-  var selectedDay = daySelect.value;
-  var selectedMonth = monthSelect.value;
-  var selectedYear = yearSelect.value;
-  var currentYear = new Date().getFullYear();
-  var years = [];
-  var months = [];
-  var days = [];
-
-  for (var year = currentYear; year <= currentYear + 3; year++) {
-    years.push({ value: String(year), label: String(year) });
-  }
-
-  for (var month = 1; month <= 12; month++) {
-    months.push({ value: String(month), label: names[month - 1] });
-  }
-
-  var maxDay = 31;
-  if (selectedMonth && selectedYear) {
-    maxDay = daysInMonth(parseInt(selectedYear, 10), parseInt(selectedMonth, 10) - 1);
-  }
-
-  if (selectedDay && parseInt(selectedDay, 10) > maxDay) {
-    selectedDay = "";
-  }
-
-  for (var day = 1; day <= maxDay; day++) {
-    days.push({ value: String(day), label: two(day) });
-  }
-
-  fillSelect(daySelect, days, selectedDay, dictionary.date_day || "День");
-  fillSelect(monthSelect, months, selectedMonth, dictionary.date_month || "Месяц");
-  fillSelect(yearSelect, years, selectedYear, dictionary.date_year || "Год");
-}
-
-function setMobileSelectDate(role, date) {
-  if (!date) { return; }
-
-  var daySelect = getMobileDateSelect(role, "day");
-  var monthSelect = getMobileDateSelect(role, "month");
-  var yearSelect = getMobileDateSelect(role, "year");
-
-  if (!daySelect || !monthSelect || !yearSelect) { return; }
-
-  yearSelect.value = String(date.getFullYear());
-  monthSelect.value = String(date.getMonth() + 1);
-  updateMobileDateOptions(role);
-  daySelect.value = String(date.getDate());
-}
-
-function syncMobileDateSelectorsFromSelection() {
-  updateMobileDateOptions("start");
-  updateMobileDateOptions("end");
-  setMobileSelectDate("start", selectedStart);
-  setMobileSelectDate("end", selectedEnd);
-}
-
-function updateDatesFromMobileSelectors() {
-  selectedStart = getMobileBookingDate("start");
-  selectedEnd = getMobileBookingDate("end");
-
-  if (selectedStart && selectedEnd && selectedEnd < selectedStart) {
-    var temporaryDate = selectedStart;
-    selectedStart = selectedEnd;
-    selectedEnd = temporaryDate;
-    syncMobileDateSelectorsFromSelection();
-  }
-
-  updateStayDatesInput();
-  syncMobileDateSelectorsFromSelection();
-  renderCalendar();
-}
-
-function initMobileDateSelectors() {
-  var selectors = document.querySelectorAll ? document.querySelectorAll("[data-booking-date][data-date-part]") : [];
-
-  if (!selectors.length) { return; }
-
-  updateMobileDateOptions("start");
-  updateMobileDateOptions("end");
-
-  if (mobileDateSelectsReady) { return; }
-
-  for (var i = 0; i < selectors.length; i++) {
-    addEvent(selectors[i], "change", function () {
-      updateMobileDateOptions(getAttr(this, "data-booking-date"));
-      updateDatesFromMobileSelectors();
-    });
-  }
-
-  mobileDateSelectsReady = true;
 }
 
 
@@ -257,7 +107,6 @@ function selectDate(date) {
   }
 
   updateStayDatesInput();
-  syncMobileDateSelectorsFromSelection();
   renderCalendar();
 }
 
@@ -365,5 +214,41 @@ addEvent(nextMonth, "click", function () {
   calendarDate.setMonth(calendarDate.getMonth() + 1);
   renderCalendar();
 });
+
+
+/* =========================================================
+   БЛОК 15. МОБИЛЬНЫЙ ВЫБОР ДАТ (нативные <input type="date">)
+
+   За что отвечает:
+   - синхронизирует нативные дейтпикеры с selectedStart / selectedEnd;
+   - обновляет поле «Даты проживания» так же, как и десктопный календарь.
+
+   Почему так:
+   - на мобильных двухмесячный календарь сложно использовать пальцем;
+   - нативный input type="date" открывает системный пикер платформы.
+   ========================================================= */
+var mobileCheckin  = document.getElementById("mobileCheckin");
+var mobileCheckout = document.getElementById("mobileCheckout");
+
+if (mobileCheckin && mobileCheckout) {
+  mobileCheckin.min = dateKey(new Date());
+
+  addEvent(mobileCheckin, "change", function () {
+    if (!mobileCheckin.value) { return; }
+    var p = mobileCheckin.value.split("-");
+    selectedStart = new Date(+p[0], +p[1] - 1, +p[2]);
+    selectedEnd   = null;
+    mobileCheckout.value = "";
+    mobileCheckout.min   = mobileCheckin.value;
+    updateStayDatesInput();
+  });
+
+  addEvent(mobileCheckout, "change", function () {
+    if (!mobileCheckout.value || !selectedStart) { return; }
+    var p = mobileCheckout.value.split("-");
+    selectedEnd = new Date(+p[0], +p[1] - 1, +p[2]);
+    updateStayDatesInput();
+  });
+}
 
 

@@ -461,6 +461,17 @@
             <div id="calendar" class="calendar"></div> <!-- div#calendar — место, куда JS вставляет сетку дней. -->
           </div>
 
+          <div id="mobile-date-picker"> <!-- мобильный альтернативный выбор дат через нативные инпуты; скрыт на десктопе -->
+            <label class="mobile-date-label">
+              <span data-i18n="mobile_checkin">Дата заезда</span>
+              <input type="date" id="mobileCheckin" name="checkin">
+            </label>
+            <label class="mobile-date-label">
+              <span data-i18n="mobile_checkout">Дата выезда</span>
+              <input type="date" id="mobileCheckout" name="checkout">
+            </label>
+          </div>
+
           <form class="form-card" action="contact.php" method="post"> <!-- form — форма заявки; action — куда отправлять, method=post — способ отправки. -->
             <label><span data-i18n="form_name">Имя</span><input name="name" required></label>            <!-- label+input — поле «Имя»; required делает обязательным. -->
             <label><span data-i18n="form_phone">Телефон</span><input name="phone" required></label>     <!-- label+input — поле «Телефон». -->
@@ -475,28 +486,7 @@
                 <option>Полулюкс</option>
               </select>
             </label>
-            <label class="stay-dates-field"><span data-i18n="form_dates">Даты проживания</span><input id="stayDates" name="dates" placeholder="01.05.2026 — 05.05.2026" readonly></label> <!-- input#stayDates — поле дат, readonly заполняется календарём или мобильными выпадающими списками. -->
-
-            <div class="mobile-date-selectors" aria-label="Выбор дат проживания"> <!-- div.mobile-date-selectors — компактный мобильный выбор дат через выпадающие списки. -->
-              <fieldset class="booking-date-group"> <!-- fieldset — группа выпадающих списков даты заезда. -->
-                <legend data-i18n="checkin_date">Дата заезда</legend>
-                <div class="booking-date-selects">
-                  <label><span data-i18n="date_day">День</span><select id="checkinDay" data-booking-date="start" data-date-part="day"></select></label>
-                  <label><span data-i18n="date_month">Месяц</span><select id="checkinMonth" data-booking-date="start" data-date-part="month"></select></label>
-                  <label><span data-i18n="date_year">Год</span><select id="checkinYear" data-booking-date="start" data-date-part="year"></select></label>
-                </div>
-              </fieldset>
-
-              <fieldset class="booking-date-group"> <!-- fieldset — группа выпадающих списков даты выезда. -->
-                <legend data-i18n="checkout_date">Дата выезда</legend>
-                <div class="booking-date-selects">
-                  <label><span data-i18n="date_day">День</span><select id="checkoutDay" data-booking-date="end" data-date-part="day"></select></label>
-                  <label><span data-i18n="date_month">Месяц</span><select id="checkoutMonth" data-booking-date="end" data-date-part="month"></select></label>
-                  <label><span data-i18n="date_year">Год</span><select id="checkoutYear" data-booking-date="end" data-date-part="year"></select></label>
-                </div>
-              </fieldset>
-            </div>
-
+            <label><span data-i18n="form_dates">Даты проживания</span><input id="stayDates" name="dates" placeholder="01.05.2026 — 05.05.2026" readonly></label> <!-- input#stayDates — поле дат, readonly заполняется только календарём. -->
             <label><span data-i18n="form_message">Комментарий</span><textarea name="message" rows="4"></textarea></label> <!-- textarea — многострочное поле; rows — высота в строках. -->
             <button class="btn" type="submit" data-i18n="send_btn">Отправить заявку</button> <!-- button type=submit — отправляет форму на contact.php. -->
           </form>
@@ -587,8 +577,8 @@
         <div class="footer-legal">
           <div class="footer-owner footer-owner-compact">
             <p class="footer-title" data-i18n="footer_owner_title">Данные владельца</p>
-            <p><strong>ИП </strong> &nbsp;|&nbsp; ИНН:  &nbsp;|&nbsp; ОГРНИП: </p>
-            <p>Юридический адрес: 195113, Россия,</p>
+            <p><strong>ИП Сионкова Е.А.</strong> &nbsp;|&nbsp; ИНН: 352836102746 &nbsp;|&nbsp; ОГРНИП: 326784700088102</p>
+            <p>Юридический адрес: 195113, Россия, г. Санкт-Петербург, аллея Евгения Шварца, д. 16, корп. 1, кв. 183</p>
             <p>Адрес гостиницы: [указать адрес] &nbsp;|&nbsp; Тел.: [указать телефон] &nbsp;|&nbsp; E-mail: [указать e-mail]</p>
             <p>Режим работы: круглосуточно &nbsp;|&nbsp; Реестровая запись: [номер записи] &nbsp;|&nbsp; Реестр: [ссылка]</p>
           </div>
