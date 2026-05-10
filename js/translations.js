@@ -100,7 +100,6 @@ var translations = {
     footer_consent:"Согласие на обработку персональных данных",
     footer_offer:"Публичная оферта",
     footer_requisites:"Реквизиты владельца",
-    footer_note:"Перед публикацией сайта проверьте актуальность адреса гостиницы, телефона, e-mail, сведений о классификации и текстов документов."
   },
   en: {
     brand:"Hotel 2.0",
@@ -170,7 +169,6 @@ var translations = {
     footer_consent:"Personal data processing consent",
     footer_offer:"Public offer",
     footer_requisites:"Owner requisites",
-    footer_note:"Before publishing the website, check the hotel address, phone number, email, classification information and document texts."
   }
 };
 

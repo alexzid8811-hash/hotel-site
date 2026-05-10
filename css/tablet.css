@@ -184,9 +184,13 @@
   }
 
   .room-info p:not(.room-price-note) {
-    min-height: 72px;
+    min-height: 100px;
   }
-
+   .room-price {
+	text-align: center;	
+	align-self: center;	
+	}
+	
   .room-price-note {
     text-align: center;
     align-self: center;
@@ -196,7 +200,6 @@
 
   .room-info .btn {
     width: fit-content;
-    margin-top: 33px;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
