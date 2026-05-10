@@ -1,0 +1,193 @@
+/* ========================================================================
+   ФАЙЛ: css/phone.css
+   НАЗНАЧЕНИЕ: точечная настройка под современные телефоны ≤ 430 px.
+   Самый распространённый размер — 390 px (iPhone 14 / 15).
+
+   ПОРЯДОК ПОДКЛЮЧЕНИЯ: после mobile.css, поэтому правила здесь
+   перекрывают mobile.css только для нужных экранов.
+
+   Ключевые значения:
+     Шапка:          86px / 64px (scrolled) — унифицировано с tablet.css
+     Padding:        16px (горизонталь), 50px (вертикаль секций)
+     Gap:            14px
+     border-radius:  20px (lg) / 16px (md)
+   ======================================================================== */
+
+@media (max-width: 430px) {
+
+  /* ── ШАПКА ──────────────────────────────────────────────────────────── */
+
+  .site-header {
+    height: 86px;
+    padding-inline: 16px;
+  }
+
+  .header-layer-controls {
+    padding-inline: 16px;
+  }
+
+  .site-header.scrolled {
+    height: 64px;
+  }
+
+  /* Логотип — та же высота что в tablet.css */
+  .brand {
+    height: 68px;
+  }
+
+  .brand-logo-scroll {
+    height: 68px;
+  }
+
+  /* Выпадающее меню — привязываем к высоте шапки */
+  .main-nav {
+    top: 86px;
+    left: 16px;
+    right: 16px;
+  }
+
+  .site-header.scrolled .main-nav {
+    top: 64px;
+  }
+
+  /* ── HERO ────────────────────────────────────────────────────────────── */
+
+  .hero {
+    padding-top: 120px;
+    padding-right: 1%;
+    padding-left: 1%;   
+  }
+
+  .hero-text {
+    border-radius: 22;
+  }
+
+  /* ── СЕКЦИИ ──────────────────────────────────────────────────────────── */
+
+  .rooms,
+  .services,
+  .booking,
+  .contacts {
+    padding: 10px 0;
+  }
+
+  /* ── НОМЕРА ──────────────────────────────────────────────────────────── */
+
+  .rooms-grid {
+    gap:20px;
+  }
+
+  .room-photo {
+    height: 150px;
+  }
+
+  .room-info {
+    padding-top: 8px;
+    padding-right: 1%;
+    padding-left: 1%;
+    padding-bottom: 12px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  /* ── УСЛУГИ ──────────────────────────────────────────────────────────── */
+
+  .services-grid {
+    gap: 14px;
+  }
+
+  .service-card {
+    padding: 16px 16px;
+    border-radius: 20px;
+    gap: 12px;
+  }
+
+  .service-icon {
+    border-radius: 16px;
+  }
+
+  .social-block {
+    padding: 16px 16px;
+    border-radius: 20px;
+  }
+
+  /* ── БРОНИРОВАНИЕ ────────────────────────────────────────────────────── */
+
+  .booking-layout {
+    gap: 14px;
+  }
+
+  .calendar-box {
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .form-card {
+    padding: 16px 16px;
+    border-radius: 20px;
+    gap: 12px;
+  }
+
+  /* ── КОНТАКТЫ ────────────────────────────────────────────────────────── */
+
+  .contacts-layout {
+    gap: 14px;
+  }
+
+  .map-wrap {
+    min-height: 300px;
+    border-radius: 20px;
+  }
+
+  /* ── ЛАЙТБОКС ────────────────────────────────────────────────────────── */
+
+  .photo-lightbox-img {
+    border-radius: 20px;
+  }
+
+  /* ── ПОДВАЛ ──────────────────────────────────────────────────────────── */
+
+  .footer-panel {
+    padding: 16px 16px;
+    border-radius: 20px;
+  }
+
+}
+
+/* ========================================================================
+   Очень узкие экраны ≤ 360 px (мелкие Android, старые телефоны).
+   Переключаем шапку на гибкий auto 1fr auto — бургер и языки занимают
+   ровно столько места, сколько нужно; логотип получает остаток.
+   ======================================================================== */
+@media (max-width: 360px) {
+
+  .site-header {
+    grid-template-columns: auto 1fr auto;
+    padding-inline: 10px;
+    gap: 8px;
+  }
+
+  .brand {
+    width: 110px;
+  }
+
+  .brand-logo-scroll {
+    width: 72px;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .site-header.scrolled .brand-logo-scroll {
+    transform: translateX(-50%) translateY(calc(-50% - 4px)) scale(0.9);
+  }
+
+  .brand-text {
+    font-size: 17px;
+  }
+
+  .main-nav {
+    left: 10px;
+    right: 10px;
+  }
+
+}
