@@ -218,6 +218,8 @@
         <p data-i18n="hero_text">Мы небольшой мини-отель на 15 номеров, расположенный в тихом районе Санкт-Петербурга.<br>
 Рады предложить вам остановиться у нас и отдохнуть. Со своей стороны мы сделаем всё, чтобы ваш отдых запомнился.</p> <!-- p — приветственный абзац hero-секции. -->
         <a href="#booking" class="btn" data-i18n="hero_button">Забронировать номер</a> <!-- a.btn — кнопка-ссылка к разделу бронирования. -->
+        <!-- Кнопка звонка: замените +70000000000 и текст «+7 (000) 000-00-00» на реальный номер -->
+        <a href="tel:+79811675212" class="btn hero-phone-btn">&#9742;&nbsp;+7 (981) 167-52-12</a>
       </div>
     </section>
 
@@ -254,10 +256,9 @@
           <div class="room-info">
             <h3 data-i18n="econom_title">Эконом</h3>
             <p  data-i18n="econom_text">Практичный номер для тех, кто ищет доступное размещение без лишних расходов.</p>
-            <div class="price" data-i18n="econom_price">Стоимость проживания: [сумма] руб.*</div>
-            <p class="room-price-note" data-i18n="room_price_note">* 2 часа — 2 000 рублей, 3 часа — 3 000 рублей.</p>
-            <a href="#booking" class="btn" data-i18n="book_btn">Забронировать</a>
-          </div>
+            <div class="price" data-i18n="econom_price">Стоимость проживания: 3 500 руб./сутки</div>
+            <p class="room-price-note" data-i18n="room_price_note">1–3 ч — 2 000 руб., 3–6 ч — 2 500 руб.</p>
+            <a href="#booking" class="btn" data-i18n="book_btn">Забронировать</a></div>
         </article>
 
         <article class="room-card"> <!-- article.room-card — карточка одного типа номера. -->
@@ -279,9 +280,34 @@
             <h3 data-i18n="standard_title">Стандарт</h3>
             <!-- h3 — название типа номера. -->
             <p  data-i18n="standard_text">Уютный номер для одного или двух гостей. Подходит для коротких поездок и командировок.</p> <!-- p — описание номера. -->
-            <div class="price" data-i18n="standard_price">Стоимость проживания: [сумма] руб.*</div>
-            <p class="room-price-note" data-i18n="room_price_note">* 2 часа — 2 000 рублей, 3 часа — 3 000 рублей.</p> <!-- div.price — цена номера. -->
-            <a href="#booking" class="btn" data-i18n="book_btn">Забронировать</a> <!-- a.btn — кнопка перехода к бронированию. -->
+            <div class="price" data-i18n="standard_price">Стоимость проживания: 4 000 руб./сутки</div>
+            <p class="room-price-note" data-i18n="room_price_note">1–3 ч — 2 000 руб., 3–6 ч — 2 500 руб.</p>
+            <a href="#booking" class="btn" data-i18n="book_btn">Забронировать</a>
+          </div>
+        </article>
+
+        <article class="room-card"> <!-- article.room-card — карточка номера «Стандарт 3-х местный». -->
+          <!-- Замените фото на реальные снимки 3-местного номера, когда они будут готовы -->
+          <div class="room-photo has-image room-slider" role="button" tabindex="0" aria-label="Открыть фото номера Стандарт 3-х местный" data-room="Стандарт 3-х местный">
+            <div class="room-slides">
+              <img src="hotel_rooms_1k_jpg/1_standart_1.jpg" alt="Номер Стандарт 3-х местный" class="room-slide active">
+              <img src="hotel_rooms_1k_jpg/1_standart_2.jpg" alt="Номер Стандарт 3-х местный" class="room-slide">
+              <img src="hotel_rooms_1k_jpg/1_standart_3.jpg" alt="Номер Стандарт 3-х местный" class="room-slide">
+            </div>
+            <button class="slide-btn slide-prev" aria-label="Предыдущее фото" tabindex="-1">&#8249;</button>
+            <button class="slide-btn slide-next" aria-label="Следующее фото" tabindex="-1">&#8250;</button>
+            <div class="slide-dots">
+              <span class="slide-dot active"></span>
+              <span class="slide-dot"></span>
+              <span class="slide-dot"></span>
+            </div>
+          </div>
+          <div class="room-info">
+            <h3 data-i18n="standard3_title">Стандарт 3-х местный</h3>
+            <p  data-i18n="standard3_text">Вместительный номер для двух или трёх гостей. Отличный выбор для семьи или компании.</p>
+            <div class="price" data-i18n="standard3_price">2 места — 4 500 руб./сутки, 3 места — 4 900 руб./сутки</div>
+            <p class="room-price-note" data-i18n="room_price_note">1–3 ч — 2 000 руб., 3–6 ч — 2 500 руб.</p>
+            <a href="#booking" class="btn" data-i18n="book_btn">Забронировать</a>
           </div>
         </article>
 
@@ -303,8 +329,8 @@
           <div class="room-info">
             <h3 data-i18n="comfort_title">Комфорт</h3>
             <p  data-i18n="comfort_text">Оптимальный вариант для гостей, которым важны тишина, удобная кровать и приятная атмосфера.</p>
-            <div class="price" data-i18n="comfort_price">Стоимость проживания: [сумма] руб.*</div>
-            <p class="room-price-note" data-i18n="room_price_note">* 2 часа — 2 000 рублей, 3 часа — 3 000 рублей.</p>
+            <div class="price" data-i18n="comfort_price">Стоимость проживания: 4 500 руб./сутки</div>
+            <p class="room-price-note" data-i18n="room_price_note">1–3 ч — 2 000 руб., 3–6 ч — 2 500 руб.</p>
             <a href="#booking" class="btn" data-i18n="book_btn">Забронировать</a>
           </div>
         </article>
@@ -327,8 +353,8 @@
           <div class="room-info">
             <h3 data-i18n="junior_title">Полулюкс</h3>
             <p  data-i18n="junior_text">Комфортный номер с увеличенной площадью, подходящий для отдыха и деловых поездок.</p>
-            <div class="price" data-i18n="junior_price">Стоимость проживания: [сумма] руб.*</div>
-            <p class="room-price-note" data-i18n="room_price_note">* 2 часа — 2 000 рублей, 3 часа — 3 000 рублей.</p>
+            <div class="price" data-i18n="junior_price">Стоимость проживания: 5 000 руб./сутки</div>
+            <p class="room-price-note" data-i18n="room_price_note">1–3 ч — 2 000 руб., 3–6 ч — 2 500 руб.</p>
             <a href="#booking" class="btn" data-i18n="book_btn">Забронировать</a>
           </div>
         </article>
@@ -351,8 +377,8 @@
           <div class="room-info">
             <h3 data-i18n="lux_title">Люкс</h3>
             <p  data-i18n="lux_text">Просторный номер повышенной комфортности с зоной отдыха и расширенным набором удобств.</p>
-            <div class="price" data-i18n="lux_price">Стоимость проживания: [сумма] руб.*</div>
-            <p class="room-price-note" data-i18n="room_price_note">* 2 часа — 2 000 рублей, 3 часа — 3 000 рублей.</p>
+            <div class="price" data-i18n="lux_price">Стоимость проживания: 5 500 руб./сутки</div>
+            <p class="room-price-note" data-i18n="room_price_note">1–3 ч — 2 000 руб., 3–6 ч — 2 500 руб.</p>
             <a href="#booking" class="btn" data-i18n="book_btn">Забронировать</a>
           </div>
         </article>
@@ -479,35 +505,15 @@
             <label> <!-- label — подпись и контейнер выпадающего списка. -->
               <span data-i18n="form_room">Тип номера</span>
               <select name="room"> <!-- select — выпадающий список; name отправляется на сервер. -->
-                <option>Стандарт</option> <!-- option — пункт выпадающего списка. -->
-                <option>Люкс</option>
+                <option>Эконом</option> <!-- option — пункт выпадающего списка. -->
+                <option>Стандарт</option>
+                <option>Стандарт 3-х местный</option>
                 <option>Комфорт</option>
-                <option>Эконом</option>
                 <option>Полулюкс</option>
+                <option>Люкс</option>
               </select>
             </label>
-            <label class="stay-dates-field"><span data-i18n="form_dates">Даты проживания</span><input id="stayDates" name="dates" placeholder="01.05.2026 — 05.05.2026" readonly></label> <!-- input#stayDates — поле дат, readonly заполняется календарём или мобильными выпадающими списками. -->
-
-            <div class="mobile-date-selectors" aria-label="Выбор дат проживания"> <!-- div.mobile-date-selectors — компактный мобильный выбор дат через выпадающие списки. -->
-              <fieldset class="booking-date-group"> <!-- fieldset — группа выпадающих списков даты заезда. -->
-                <legend data-i18n="checkin_date">Дата заезда</legend>
-                <div class="booking-date-selects">
-                  <label><span data-i18n="date_day">День</span><select id="checkinDay" data-booking-date="start" data-date-part="day"></select></label>
-                  <label><span data-i18n="date_month">Месяц</span><select id="checkinMonth" data-booking-date="start" data-date-part="month"></select></label>
-                  <label><span data-i18n="date_year">Год</span><select id="checkinYear" data-booking-date="start" data-date-part="year"></select></label>
-                </div>
-              </fieldset>
-
-              <fieldset class="booking-date-group"> <!-- fieldset — группа выпадающих списков даты выезда. -->
-                <legend data-i18n="checkout_date">Дата выезда</legend>
-                <div class="booking-date-selects">
-                  <label><span data-i18n="date_day">День</span><select id="checkoutDay" data-booking-date="end" data-date-part="day"></select></label>
-                  <label><span data-i18n="date_month">Месяц</span><select id="checkoutMonth" data-booking-date="end" data-date-part="month"></select></label>
-                  <label><span data-i18n="date_year">Год</span><select id="checkoutYear" data-booking-date="end" data-date-part="year"></select></label>
-                </div>
-              </fieldset>
-            </div>
-
+            <label><span data-i18n="form_dates">Даты проживания</span><input id="stayDates" name="dates" placeholder="01.05.2026 — 05.05.2026" readonly></label> <!-- input#stayDates — поле дат, readonly заполняется только календарём. -->
             <label><span data-i18n="form_message">Комментарий</span><textarea name="message" rows="4"></textarea></label> <!-- textarea — многострочное поле; rows — высота в строках. -->
             <button class="btn" type="submit" data-i18n="send_btn">Отправить заявку</button> <!-- button type=submit — отправляет форму на contact.php. -->
           </form>
@@ -524,28 +530,31 @@
          - ссылки на VK / Telegram / WhatsApp.
          Координаты карты лежат в src iframe (?ll=ДОЛГОТА,ШИРОТА&z=ЗУМ).
          ========================================================= -->
-    <section class="contacts section" id="contacts"> <!-- section.contacts — раздел «Контакты»; id используется ссылкой меню. -->
+    <section class="contacts section" id="contacts"> <!-- section.contacts — раздел «Контакты». -->
+
+      <!-- Заголовок внутри контейнера -->
       <div class="container">
-        <h2 data-i18n="contacts_title">Контакты</h2> <!-- h2 — заголовок раздела «Контакты». -->
+        <h2 data-i18n="contacts_title">Контакты</h2>
+      </div>
 
-        <div class="contacts-layout"> <!-- div.contacts-layout — раскладка «карта | форма». -->
-
-          <div class="map-wrap"> <!-- div.map-wrap — контейнер карты с фиксированными пропорциями. -->
-            <iframe src="https://yandex.ru/map-widget/v1/?ll=30.315868%2C59.939095&z=11" title="Карта Яндекс"></iframe> <!-- iframe — встроенная Яндекс.Карта; title для доступности. -->
-          </div>
-
-          <form class="form-card" action="contact.php" method="post"> <!-- form — форма обратной связи; отправляет данные на contact.php. -->
-            <label><span data-i18n="form_name">Имя</span><input name="name" required></label>                    <!-- label+input — обязательное поле «Имя». -->
-            <label><span data-i18n="form_email">Email</span><input name="email" type="email" required></label>   <!-- label+input — обязательное поле «Email». -->
-            <label><span data-i18n="form_message">Сообщение</span><textarea name="message" rows="6" required></textarea></label> <!-- label+textarea — обязательное многострочное поле «Сообщение». -->
-            <button class="btn" type="submit" data-i18n="send_message_btn">Отправить сообщение</button> <!-- button type=submit — отправляет форму на contact.php. -->
-          </form>
+      <!-- Обёртка: карта + форма поверх (только десктоп) -->
+      <div class="contacts-map-block">
+        <div class="map-wrap map-wrap--full"> <!-- div.map-wrap.map-wrap--full — Яндекс.Карта на 100% ширины. -->
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac43a71e3ed50df4e77fd61f04cd83054ccfe008402c722ca43849c4c0e1ebd6b&amp;width=100%25&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
+        <form class="form-card contacts-form" action="contact.php" method="post"> <!-- form — поверх карты на десктопе (position:absolute в CSS). -->
+          <label><span data-i18n="form_name">Имя</span><input name="name" required></label>
+          <label><span data-i18n="form_email">Email</span><input name="email" type="email" required></label>
+          <label><span data-i18n="form_message">Сообщение</span><textarea name="message" rows="6" required></textarea></label>
+          <button class="btn" type="submit" data-i18n="send_message_btn">Отправить сообщение</button>
+        </form>
+      </div>
 
+      <!-- Соцсети под картой -->
+      <div class="container">
         <!-- =========================================================
              БЛОК «МЫ В СОЦИАЛЬНЫХ СЕТЯХ»
-             Сейчас ссылки ведут на «#». Когда появятся реальные аккаунты,
-             замените href на ссылки страниц VK / Telegram / WhatsApp.
+             Замените href="#" на реальные URL аккаунтов.
              ========================================================= -->
         <div class="social-block">
           <div class="social-links">
@@ -556,6 +565,7 @@
           </div>
         </div>
       </div>
+
     </section>
   </main>
 

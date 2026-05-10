@@ -21,29 +21,6 @@
 /* Селектор @media (min-width: 1101px) — ограничивает правила только широкими экранами. */
 /* Описание строки: условие применения правил только для указанного диапазона ширины экрана. */
 @media (min-width: 1101px) {
-  /* ── РУЧНЫЕ НАСТРОЙКИ INPUT / SELECT / TEXTAREA ДЛЯ ДЕСКТОПА ≥1101px ──
-     Меняйте эти переменные, чтобы вручную настроить размер и положение полей. */
-  :root {
-    --form-card-gap: 16px;
-    --form-card-padding: 26px;
-    --form-card-radius: 28px;
-    --form-label-gap: 7px;
-    --form-label-size: 14px;
-    --form-field-width: 100%;
-    --form-field-max-width: 100%;
-    --form-field-justify-self: stretch;
-    --form-field-min-height: 48px;
-    --form-field-padding-y: 12px;
-    --form-field-padding-x: 14px;
-    --form-field-radius: 14px;
-    --form-field-font-size: 16px;
-    --form-field-shift-x: 0px;
-    --form-field-shift-y: 0px;
-    --form-field-margin-top: 0px;
-    --form-field-margin-bottom: 0px;
-    --form-textarea-min-height: 118px;
-  }
-
   /* Селектор .site-header — сохраняет просторную высоту шапки на больших мониторах. */
   /* Описание строки: начинает блок стилей для класса .site-header. */
   .site-header {
