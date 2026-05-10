@@ -14,6 +14,37 @@
    ======================================================================== */
 
 @media (max-width: 430px) {
+  /* ── РУЧНЫЕ НАСТРОЙКИ INPUT / SELECT / TEXTAREA ДЛЯ ТЕЛЕФОНОВ ≤430px ──
+     Самый точный слой настроек: перекрывает css/mobile.css. */
+  :root {
+    --form-card-gap: 12px;
+    --form-card-padding: 16px 16px;
+    --form-card-radius: 20px;
+    --form-label-gap: 7px;
+    --form-label-size: 14px;
+    --form-field-width: 100%;
+    --form-field-max-width: 100%;
+    --form-field-justify-self: stretch;
+    --form-field-min-height: 48px;
+    --form-field-padding-y: 12px;
+    --form-field-padding-x: 14px;
+    --form-field-radius: 14px;
+    --form-field-font-size: 16px;
+    --form-field-shift-x: 0px;
+    --form-field-shift-y: 0px;
+    --form-field-margin-top: 0px;
+    --form-field-margin-bottom: 0px;
+    --form-textarea-min-height: 118px;
+    --mobile-date-select-grid: 0.78fr 1.35fr 0.95fr;
+    --mobile-date-select-gap: 7px;
+    --mobile-date-group-shift-x: 0px;
+    --mobile-date-group-shift-y: 0px;
+    --mobile-date-select-min-height: 42px;
+    --mobile-date-select-padding-y: 9px;
+    --mobile-date-select-padding-x: 8px;
+    --mobile-date-select-font-size: 14px;
+  }
+
 
   /* ── ШАПКА ──────────────────────────────────────────────────────────── */
 
@@ -122,9 +153,9 @@
   }
 
   .form-card {
-    padding: 16px 16px;
-    border-radius: 20px;
-    gap: 12px;
+    padding: var(--form-card-padding);
+    border-radius: var(--form-card-radius);
+    gap: var(--form-card-gap);
   }
 
   /* ── КОНТАКТЫ ────────────────────────────────────────────────────────── */
