@@ -85,46 +85,7 @@
 
 <body> <!-- body — видимая часть сайта, всё что увидит пользователь. -->
 
-  <!-- =========================================================
-       СПРАВОЧНИК HTML-ТЕГОВ (тег и описание в одной строке)
-       <!DOCTYPE html> — включает современный режим HTML5.
-       <html lang="ru"> — корневой тег; lang задаёт язык страницы.
-       <head> — служебная часть; пользователю не видна.
-       <meta charset="UTF-8"> — кодировка для корректного русского/английского текста.
-       <meta name="viewport"> — адаптация под телефоны и планшеты.
-       <meta name="description"> — краткое описание страницы для поисковиков.
-       <meta name="keywords"> — ключевые слова страницы.
-       <meta name="robots"> — разрешает индексацию и переход по ссылкам.
-       <meta property="og:*"> — карточка сайта в соцсетях и мессенджерах.
-       <title> — заголовок вкладки браузера и SEO-заголовок.
-       <link rel="stylesheet" href="..."> — подключает CSS-файл оформления.
-       <script src="..."> — подключает JavaScript-файл с поведением.
-       <body> — видимая часть страницы.
-       <header> — шапка сайта (логотип, меню, языки).
-       <nav> — навигационное меню сайта.
-       <main> — основное содержимое страницы.
-       <section> — самостоятельный раздел сайта.
-       <article> — отдельная карточка услуги или номера.
-       <div> — универсальный контейнер для группировки элементов.
-       <span> — короткий текстовый элемент внутри строки.
-       <a href="#..."> — ссылка к разделу страницы или внешнему документу.
-       <img src="..." alt="..."> — изображение; alt — описание для SEO и доступности.
-       <button type="button"> — кнопка без отправки формы.
-       <h1> — главный заголовок страницы (должен быть один основной).
-       <h2> — заголовок крупного раздела.
-       <h3> — заголовок карточки услуги или номера.
-       <p> — абзац обычного текста.
-       <form action="..." method="post"> — форма отправки данных на сервер.
-       <label> — подпись и контейнер поля формы.
-       <input name="..." required> — однострочное поле ввода; required — обязательное.
-       <select> и <option> — выпадающий список и варианты выбора.
-       <textarea rows="..."> — многострочное поле; rows — высота в строках.
-       <iframe src="..."> — встроенная Яндекс.Карта.
-       <footer> — нижняя часть сайта со ссылками на документы.
-       data-i18n="..." — пользовательский атрибут, ключ перевода (RU/EN).
-       data-lang-btn="ru|en" — пользовательский атрибут кнопки переключения языка.
-       aria-label="..." — название элемента для скринридеров и доступности.
-       ========================================================= -->
+
 
 
   <!-- =========================================================
@@ -219,7 +180,7 @@
 Рады предложить вам остановиться у нас и отдохнуть. Со своей стороны мы сделаем всё, чтобы ваш отдых запомнился.</p> <!-- p — приветственный абзац hero-секции. -->
         <a href="#booking" class="btn" data-i18n="hero_button">Забронировать номер</a> <!-- a.btn — кнопка-ссылка к разделу бронирования. -->
         <!-- Кнопка звонка: замените +70000000000 и текст «+7 (000) 000-00-00» на реальный номер -->
-        <a href="tel:+79811675212" class="btn hero-phone-btn">&#9742;&nbsp;+7 (981) 167-52-12</a>
+        <a href="tel:+79811675212" class="btn hero-phone-btn">+7 (981) 167-52-12</a>
       </div>
     </section>
 
@@ -547,23 +508,19 @@
           <label><span data-i18n="form_email">Email</span><input name="email" type="email" required></label>
           <label><span data-i18n="form_message">Сообщение</span><textarea name="message" rows="6" required></textarea></label>
           <button class="btn" type="submit" data-i18n="send_message_btn">Отправить сообщение</button>
-        </form>
-      </div>
-
-      <!-- Соцсети под картой -->
-      <div class="container">
-        <!-- =========================================================
-             БЛОК «МЫ В СОЦИАЛЬНЫХ СЕТЯХ»
-             Замените href="#" на реальные URL аккаунтов.
-             ========================================================= -->
-        <div class="social-block">
-          <div class="social-links">
-            <a href="#" aria-label="ВКонтакте"><img src="assets/icon-vk.svg" alt="ВКонтакте" width="52" height="52"></a>
-            <a href="#" aria-label="Telegram"><img src="assets/icon-telegram.svg" alt="Telegram" width="52" height="52"></a>
-            <a href="#" aria-label="Max"><img src="assets/icon-max.svg" alt="Max" width="52" height="52"></a>
-            <a href="#" aria-label="WhatsApp"><img src="assets/icon-whatsapp.svg" alt="WhatsApp" width="52" height="52"></a>
+          <!-- =========================================================
+               БЛОК «МЫ В СОЦИАЛЬНЫХ СЕТЯХ»
+               Замените href="#" на реальные URL аккаунтов.
+               ========================================================= -->
+          <div class="social-block">
+            <div class="social-links">
+              <a href="#" aria-label="ВКонтакте"><img src="assets/icon-vk.svg" alt="ВКонтакте" width="52" height="52"></a>
+              <a href="#" aria-label="Telegram"><img src="assets/icon-telegram.svg" alt="Telegram" width="52" height="52"></a>
+              <a href="#" aria-label="Max"><img src="assets/icon-max.svg" alt="Max" width="52" height="52"></a>
+              <a href="#" aria-label="WhatsApp"><img src="assets/icon-whatsapp.svg" alt="WhatsApp" width="52" height="52"></a>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
 
     </section>
